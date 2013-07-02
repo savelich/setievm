@@ -1,0 +1,28 @@
+S: <создаём новое TCP соединение c POP3 сервером через порт 110>
+S: +OK POP3 server ready
+C: USER MonstrVB
+S: +OK User MonstrVB is exists
+C: PASS mymail
+S: +OK MonsrVB's maildrop has 2 messages (320 octets)
+C: STAT
+S: +OK 2 320
+C: LIST
+S: +OK 2 messages (320 octets)
+S: 1 120
+S: 2 200
+S: .
+C: RETR 1
+S: +OK 120 octets
+S: 
+S: .
+C: DELE 1
+S: +OK message 1 deleted
+C: RETR 2
+S: +OK 200 octets
+S: 
+S: .
+C: DELE 2
+S: +OK message 2 deleted
+C: QUIT
+S: +OK dewey POP3 server signing off (maildrop empty)
+C: <закрываем соединение>
